@@ -5,8 +5,8 @@ import img from '../../assets/images/slider-bg.jpg'
 
 const Home = () => {
   return (
-    <div className='bg-bg font-sans w-full p-0 block'>
-        <header className='md:h-[700px] h-full' style={{ backgroundImage: `url(${img})`, backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'center'}}>
+    <div className='bg-bg font-sans p-0 block'>
+        <header className='md:h-[700px] h-[600px]' style={{ backgroundImage: `url(${img})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center'}}>
             <Navbar />
             <Hero />
         </header>
