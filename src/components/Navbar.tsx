@@ -1,43 +1,19 @@
-"use client"
-
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
+import { BsCart3 } from 'react-icons/bs'
 import Logo from '../logo.png'
 import { Link } from 'react-router-dom'
+import { ProductContext } from '../store/Product'
 
 const Navbar = () => {
-  const [show, setShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const [active, setActive] = useState(false)
+  const { items } = useContext(ProductContext)
   
   const toggleActive = () => setActive(!active)
 
-
-  useEffect(() => {
-    const controlNavbar = () => {
-      if (typeof window !== 'undefined') { 
-        if (window.scrollY > lastScrollY) { // if scroll down hide the navbar
-          setShow(false); 
-        } else { // if scroll up show the navbar
-          setShow(true);  
-        }
-  
-        // remember current page location to use in the next move
-        setLastScrollY(window.scrollY); 
-      }
-    };
-    if (typeof window !== 'undefined') {
-      window.addEventListener('scroll', controlNavbar);
-
-      // cleanup function
-      return () => {
-        window.removeEventListener('scroll', controlNavbar);
-      };
-    }
-  }, [lastScrollY]);
   return (
     <>
-    <nav className={`md:flex justify-center items-center gap-x-80 font-bold hidden w-full z-10 bg-white fixed top-[-40px] right-0 py-5 rounded-md md:mt-10 p-10 ${!show && 'hidden'}`}>
+    <nav className={`md:flex justify-center items-center gap-x-80 font-bold hidden w-full z-10 bg-white fixed top-[-40px] right-0 py-5 rounded-md md:mt-10 p-10 `}>
       <Link to='/'>
         <img src={Logo} alt="" className='h-16'/>
       </Link>
@@ -48,12 +24,16 @@ const Navbar = () => {
          <Link to='/contact' className='hover:text-orange-700 transition ease-in-out duration-300'>contact</Link>
       </ul>
       <ul className='md:flex justify-between items-center gap-x-10 hidden'>
+        <Link to='/cart' className='relative bottom-3 hover:text-prim hover:font-bold'>
+          <span className='relative top-2 left-3 text-prim font-bold'>{items.length}</span>
+          <BsCart3 size={30}/>
+        </Link>
         <Link className='py-3 px-8 transition duration-300 ease-in-out hover:text-white hover:bg-slate-600  bg-black text-white rounded-full' to='/signup'>signup</Link>
         <Link className='py-2 px-5 transition duration-300 ease-in-out text-black border border-black hover:bg-white hover:border-none hover:underline-offset-4 hover:underline hover:text-black rounded-full' to='/login'>login</Link>
       </ul>
     </nav>
 
-    <nav className={`md:hidden w-full flex justify-between items-center p-3 pt-3 sticky bg-white z-10 ${!show && 'hidden'}`}>
+    <nav className={`md:hidden w-full flex justify-between items-center p-3 pt-3 sticky bg-white z-10`}>
         <Link to='/'>
           <img src={Logo} alt="" className='h-10'/>
         </Link>

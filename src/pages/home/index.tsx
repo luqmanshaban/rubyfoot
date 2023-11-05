@@ -2,6 +2,8 @@ import React from 'react'
 import Navbar from '../../components/Navbar'
 import Hero from './Hero'
 import img from '../../assets/images/slider-bg.jpg'
+import WhyShopWithUs from './WhyShopWithUs'
+import NewArrival from './NewArrival'
 
 const Home = () => {
   return (
@@ -10,7 +12,9 @@ const Home = () => {
             <Navbar />
             <Hero />
         </header>
-        <main>
+        <main className='my-20'>
+          <WhyShopWithUs />
+          <NewArrival />
         </main>
         <footer></footer>
     </div>
