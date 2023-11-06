@@ -5,10 +5,10 @@ import { BiCartAdd } from 'react-icons/bi'
 
 const TopSelling = () => {
     const { products, addToCart } = useContext(ProductContext)
-
+   
 
   return (
-    <div className='my-20 flex justify-center items-center flex-col'>
+    <div className='my-20 flex justify-center items-center bg-txt flex-col'>
         <h1 className='my-10 text-dark text-4xl font-bold'>Top Selling</h1>
         <section className='flex items-center justify-center md:flex-row flex-col gap-y-5 md:gap-x-10'>
             {products.slice(0,3).map((product: ProductT, index: number) => (

@@ -37,7 +37,7 @@ const Navbar = () => {
         <Link to='/'>
           <img src={Logo} alt="" className='h-10'/>
         </Link>
-        <Link to='/cart' className='fixed top-3 right-20 hover:text-prim hover:font-bold'>
+        <Link to='/cart' className='fixed top-4 right-20 hover:text-prim hover:font-bold'>
           {count > 0 && <span className='fixed top-0 right-20 text-prim font-bold'>{count}</span>}
           <BiSolidCartAlt color='black' size={30}/>
         </Link>

@@ -5,11 +5,12 @@ import white3 from '../../assets/images/Velocity/white3.png';
 import { ProductContext } from '../../store/Product';
 import { BiCartAlt } from 'react-icons/bi';
 
-const NewArrival = () => {
+const Featured = () => {
     const [selectedColor, setSelectedColor] = useState('white'); 
     const [selectedSize, setSelectedSize] = useState(7)
     const [sizeBtnClicked, setSizeBtnClicked] = useState<number>(7)
     const { products, addToCart } = useContext(ProductContext);
+    
 
     const colorPicked = (colorValue: string) => {
         setSelectedColor(colorValue); 
@@ -20,11 +21,13 @@ const NewArrival = () => {
     }
 
     return (
+        <>
+        <h1 className='my-10 text-dark text-4xl font-bold text-center mt-20'>Featured</h1>
         <div className='flex justify-center items-center md:flex-row flex-col gap-x-20 md:px-20 bg-slate-300 text-txt'>
             <section>
-                {selectedColor === 'white' && <img src={white1} alt="" />}
-                {selectedColor === 'orange' && <img src={white2} alt="" />}
-                {selectedColor === 'black' && <img src={white3} alt="" />}
+                {selectedColor === 'white' && <img  className='md:h-full md:-w-full h-44 w-44' src={white1} alt="" />}
+                {selectedColor === 'orange' && <img className='md:h-full md:-w-full h-44 w-44'  src={white2} alt="" />}
+                {selectedColor === 'black' && <img  className='md:h-full md:-w-full h-44 w-44' src={white3} alt="" />}
             </section>
             <section className='flex flex-col gap-y-3 px-3'>
                 <p className='text-sm font-bold text-orange-600'>On Sale</p>
@@ -62,7 +65,8 @@ const NewArrival = () => {
                 </button>
             </section>
         </div>
+        </>
     );
 };
 
-export default NewArrival;
+export default Featured;
