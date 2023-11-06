@@ -44,7 +44,7 @@ const Footer = () => {
             </article>
             <article className='md:w-[30%] w-full flex flex-col gap-y-3'>
                 <h1 className='text-xl font-semibold'>NEWSLETTER</h1>
-                <p className='text-slate-300'>Be the first to know about new arrivals, look books, sales & promos!</p>
+                <p className='text-slate-300'>Be the first to know about new arrivals, sales & promos!</p>
                 <form>
                     <div className='flex items-center mt-5'>
                       <input type="email" name="email" required id="email" placeholder='Your Email' className='bg-dark focus:outline-none text-txt placeholder-slate-600' />

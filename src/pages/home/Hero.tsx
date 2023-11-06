@@ -39,7 +39,7 @@ const Hero = () => {
 
   return (
     <div className='flex justify-center items-center md:px-80'>
-      <div className="absolute md:bottom-16 bg-black bg-opacity-50 text-gray-100 w-full h-full md:h-[700px] rounded-15 md:p-20"></div>
+      <div className="absolute md:bottom-16 bottom-10 bg-black bg-opacity-50 text-gray-100 w-full h-full md:h-[700px] rounded-15 md:p-20"></div>
       <Carousel width={adjustWidth()} showArrows={false} showThumbs={false} showIndicators={true}  showStatus={false} infiniteLoop={true} autoPlay={true} interval={3000}>
         {div.map((element, index) => (
           <div key={index} className='z-10 my-10'>
