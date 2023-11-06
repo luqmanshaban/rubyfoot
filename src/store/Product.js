@@ -21,6 +21,9 @@ const ProductProvider = ({ children }) => {
         [productName]: (prev[productName] || 0) -1,
       }));
 
+      const count = items.length
+      console.log(items);
+
     const addToCart = (name, price, size, quantity, color) => setItems(prev => [...prev, {name, price, size, quantity, color}])
     const removeFromCart = (name) => setItems((prev) => prev.filter((item) => item.name !== name));
 
@@ -36,6 +39,7 @@ const ProductProvider = ({ children }) => {
         itemCount,
         items,
         total,
+        count,
         addToCart,
         removeFromCart,
         handleAdd,

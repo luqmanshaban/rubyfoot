@@ -4,6 +4,7 @@ import Hero from './Hero'
 import img from '../../assets/images/slider-bg.jpg'
 import WhyShopWithUs from './WhyShopWithUs'
 import NewArrival from './NewArrival'
+import TopSelling from './TopSelling'
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
         <main className='my-20'>
           <WhyShopWithUs />
           <NewArrival />
+          <TopSelling />
         </main>
         <footer></footer>
     </div>

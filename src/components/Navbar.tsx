@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { AiOutlineClose } from 'react-icons/ai'
-import { BsCart3 } from 'react-icons/bs'
+import { BiSolidCartAlt } from 'react-icons/bi'
 import Logo from '../logo.png'
 import { Link } from 'react-router-dom'
 import { ProductContext } from '../store/Product'
 
 const Navbar = () => {
   const [active, setActive] = useState(false)
-  const { items } = useContext(ProductContext)
+  const { count } = useContext(ProductContext)
   
   const toggleActive = () => setActive(!active)
 
@@ -25,17 +25,21 @@ const Navbar = () => {
       </ul>
       <ul className='md:flex justify-between items-center gap-x-10 hidden'>
         <Link to='/cart' className='relative bottom-3 hover:text-prim hover:font-bold'>
-          <span className='relative top-2 left-3 text-prim font-bold'>{items.length}</span>
-          <BsCart3 size={30}/>
+          {count > 0 && <span className='relative top-2 left-3 text-prim font-bold'>{count}</span>}
+          <BiSolidCartAlt size={30}/>
         </Link>
         <Link className='py-3 px-8 transition duration-300 ease-in-out hover:text-white hover:bg-slate-600  bg-black text-white rounded-full' to='/signup'>signup</Link>
         <Link className='py-2 px-5 transition duration-300 ease-in-out text-black border border-black hover:bg-white hover:border-none hover:underline-offset-4 hover:underline hover:text-black rounded-full' to='/login'>login</Link>
       </ul>
     </nav>
 
-    <nav className={`md:hidden w-full flex justify-between items-center p-3 pt-3 sticky bg-white z-10`}>
+    <nav className={`md:hidden w-full flex justify-between items-center p-3 pt-3 fixed bg-white z-10`}>
         <Link to='/'>
           <img src={Logo} alt="" className='h-10'/>
+        </Link>
+        <Link to='/cart' className='fixed top-3 right-20 hover:text-prim hover:font-bold'>
+          {count > 0 && <span className='fixed top-0 right-20 text-prim font-bold'>{count}</span>}
+          <BiSolidCartAlt color='black' size={30}/>
         </Link>
        <ul className={`flex flex-col gap-y-5 bg-black shadow-lg shadow-slate-700 p-10 fixed top-16 w-[80%] h-full z-10 ${!active ? 'left-[-100%] transition ease-in-out duration-500' : 'left-0 transition ease-in-out duration-700'}`}>
            <Link to='/' className='text-white hover:text-orange-700 transition ease-in-out duration-300'>home</Link>

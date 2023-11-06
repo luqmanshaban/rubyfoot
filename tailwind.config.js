@@ -14,7 +14,7 @@ module.exports = {
           w: '#FFA114'
         },
         txt: '#FFF7F3',
-        bg: '#ECECEC'
+        bg: '#ECECEC',
       }
     },
   },

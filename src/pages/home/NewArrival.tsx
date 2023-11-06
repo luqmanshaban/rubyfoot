@@ -1,20 +1,22 @@
 import React, { useContext, useState } from 'react';
 import white1 from '../../assets/images/hero.png';
-import white2 from '../../assets/images/white2.png';
-import white3 from '../../assets/images/white3.png';
+import white2 from '../../assets/images/Velocity/white2.png';
+import white3 from '../../assets/images/Velocity/white3.png';
 import { ProductContext } from '../../store/Product';
 import { BiCartAlt } from 'react-icons/bi';
 
 const NewArrival = () => {
-    const [selectedColor, setSelectedColor] = useState('white'); // State to track the selected color
+    const [selectedColor, setSelectedColor] = useState('white'); 
     const [selectedSize, setSelectedSize] = useState(7)
+    const [sizeBtnClicked, setSizeBtnClicked] = useState<number>(7)
     const { products, addToCart } = useContext(ProductContext);
 
     const colorPicked = (colorValue: string) => {
-        setSelectedColor(colorValue); // Update the selected color
+        setSelectedColor(colorValue); 
     };
     const sizePicked = (sizeValue: number) => {
         setSelectedSize(sizeValue)
+        setSizeBtnClicked(sizeValue)
     }
 
     return (
@@ -34,8 +36,9 @@ const NewArrival = () => {
                         <span
                             key={index}
                             onClick={() => colorPicked(colorValue)}
-                            className={`cursor-pointer h-5 w-5 rounded-full bg-${colorValue === 'white' || colorValue === 'black' ? colorValue : `${colorValue}-500`}`}
-                        ></span>
+                            className={`cursor-pointer block  h-5 w-5 rounded-full ${selectedColor === colorValue && 'border-2 border-blue-700'} ${colorValue === 'white' ? 'bg-white' : ''} ${colorValue === 'black' ? 'bg-black' : ''} ${colorValue === 'orange' ? 'bg-orange-600' : ''}`}
+                            >
+                        </span>
                     ))}
                 </div>
                 <h2 className='text-gray-500 text-2xl'>Sizes:</h2>
@@ -44,7 +47,7 @@ const NewArrival = () => {
                         <span
                             key={index}
                             onClick={() => sizePicked(size)}
-                            className='md:h-10 md:w-10 h-8 w-8 text-center flex justify-center items-center rounded-lg bg-white text-black'
+                            className={`md:h-10 md:w-10 h-8 w-8 cursor-pointer text-center flex justify-center items-center rounded-lg ${sizeBtnClicked === size ? 'bg-black text-white' : 'bg-white text-black'}`}
                         >
                             {size}
                         </span>
