@@ -11,13 +11,10 @@ const h1Variation = {
   hidden: {opacity: 0, y:100},
   visible: {opacity: 1, y: 1, transition: {duration: 0.5, delay: 0}}
 }
-const iVariation = {
-  hidden: {opacity: 0, x:-100},
-  visible: {opacity: 1, y: 1, transition: {duration: 0.5, delay: 0}}
-}
+
 const dVariation = {
   hidden: {opacity: 0, x:100},
-  visible: {opacity: 1, x: 1, transition: {duration: 0.5, delay: 0}}
+  visible: {opacity: 1, x: 1, transition: {duration: 0.5}}
 }
 
 const imageSources: any = {
@@ -27,15 +24,13 @@ const imageSources: any = {
 };
 
 const Featured = () => {
-    const [selectedColor, setSelectedColor] = useState('white'); 
+    const [selectedColor, setSelectedColor] = useState('orange'); 
     const [selectedSize, setSelectedSize] = useState(7)
     const [sizeBtnClicked, setSizeBtnClicked] = useState<number>(7)
     const { products, addToCart } = useContext(ProductContext);
     const h1Controls = useAnimation()
     const iControls = useAnimation()
-    const Controls = useAnimation()
     const [h1Ref , h1Inview] = useInView({triggerOnce: true})
-    const [iRef , iInview] = useInView({triggerOnce: true})
     const [dRef , dInview] = useInView({triggerOnce: true})
     
 
@@ -57,25 +52,20 @@ const Featured = () => {
           iControls.start('visible')
         }
       },[iControls, dInview])
-      useEffect(() => {
-        if(iInview){
-          Controls.start('visible')
-        }
-      },[Controls, iInview])
+      
 
     return (
         <>
         <motion.h1 ref={h1Ref} initial='hidden' animate={h1Controls} variants={h1Variation} className='my-10 text-txt text-4xl font-bold text-center mt-32'>Featured</motion.h1>
         <div className='flex justify-center items-center md:flex-row flex-col gap-x-20 md:px-20 bg-slate-300 text-txt'>
-            <motion.section>
-               <motion.img
-                   ref={iRef} initial='hidden' animate={iControls} variants={iVariation}
-                    className='md:h-[400px] md:w-[400px] md:-w-full h-full w-full'
+            <section>
+               <img
+                    className='md:h-[400px] md:w-[400px] h-52 w-52'
                     src={imageSources[selectedColor]}
                     alt=''
-                    />
-            </motion.section>
-            <motion.section ref={dRef} initial='hidden' animate={Controls} variants={dVariation} className='flex flex-col gap-y-3 px-3 md:py-20'>
+                />
+            </section>
+            <motion.section ref={dRef} initial='hidden' animate={iControls} variants={dVariation} className='flex flex-col gap-y-3 px-3 py-20'>
                 <p className='text-sm font-bold text-orange-600'>On Sale</p>
                 <h1 className='text-dark md:text-4xl text-2xl font-bold '>Zapatilas Hombre</h1>
                 <h2 className='text-dark text-xl font-bold'>${products[0].price}</h2>

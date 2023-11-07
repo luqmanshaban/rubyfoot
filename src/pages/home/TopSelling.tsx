@@ -14,7 +14,7 @@ const TopSelling = () => {
             {products.slice(0,3).map((product: ProductT, index: number) => (
                 <article key={index} className='flex flex-col items-start justify-start gap-y-2 w-full px-2 shadow-md p-3 bg-[#001326]'>
                     <figure className='w-full p-10 bg-slate-300'>
-                        <img src={product.images[0]} className='' height={200} width={200} alt={product.name} />
+                        <img src={product.images[1]} className='' height={200} width={200} alt={product.name} />
                     </figure>
                     <figure className='flex justify-between items-center w-full'>
                       <p className='text-md text-gray-600 font-bold'>${product.price}</p>

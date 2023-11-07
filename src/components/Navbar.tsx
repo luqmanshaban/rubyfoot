@@ -35,8 +35,8 @@ const Navbar = () => {
         <Link to='/'>
           <img src={Logo} alt="" className='h-10'/>
         </Link>
-        <Link to='/cart' className='fixed top-4 right-20 text-slate-300 hover:text-prim hover:font-bold'>
-          {count > 0 && <span className='fixed top-0 right-20 text-prim font-bold'>{count}</span>}
+        <Link to='/cart' className='fixed top-5 right-20 text-slate-300 hover:text-prim hover:font-bold'>
+          {count > 0 && <span className='fixed top-3 right-20 h-2 w-2 rounded-full bg-prim font-bold'></span>}
           <BiSolidCartAlt  size={30}/>
         </Link>
        <ul className={`flex flex-col gap-y-5 bg-[#001326] shadow-lg shadow-slate-700 rounded-lg p-10 fixed top-16 w-[90%] h-full z-10 ${!active ? 'left-[-100%] transition ease-in-out duration-500' : 'left-0 transition ease-in-out duration-700'}`}>
@@ -49,7 +49,7 @@ const Navbar = () => {
         <ul className='md:hidden block' onClick={toggleActive}>
             { !active && <div className={`w-[25px] h-[2px] bg-slate-300 block m-2`}></div>}
             { !active && <div className={`w-[25px] h-[2px] bg-slate-300 block m-2`}></div>}
-            {active && <AiOutlineClose size={30} />}
+            {active && <AiOutlineClose size={30} color='white' />}
         </ul>
     </nav>
     </>
