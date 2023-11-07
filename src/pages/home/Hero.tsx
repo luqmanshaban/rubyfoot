@@ -1,54 +1,59 @@
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css'; // Import the carousel styles
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import hero from '../../assets/images/hero.png'
+import { Link } from 'react-router-dom'
+import {motion, useAnimation} from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
-const div1 = (
-  <div className='p-2 pt-40 flex flex-col justify-center items-center md:gap-y-5 gap-y-2 md:pt-40 md:my-20'>
-    <h1 className='md:text-5xl text-3xl text-txt font-bold'>20% Off</h1>
-    <p className='text-white whitespace-normal'>Get 20% off your first purchase today and enjoy incredible savings on our amazing products. Shop now and experience the best deals!</p>
-    <Link to='/catalog' className='p-2 md:px-10 bg-status-w rounded-lg font-bold md:text-lg'>Order Now</Link>
-  </div>
-);
-
-
-const div2 = (
-  <div className='p-2 pt-40 flex flex-col justify-center items-center md:gap-y-5 gap-y-2 md:pt-40 md:my-20'>
-    <h1 className='md:text-5xl text-3xl text-txt font-bold'>New Arrivals</h1>
-    <p className='text-white'>Discover our latest collection of high-quality products that will elevate your style and meet your needs. Shop now to stay ahead of the trend!</p>
-    <Link to='/catalog' className='p-2 md:px-10 bg-status-w rounded-lg font-bold md:text-lg'>View Catalog</Link>
-  </div>
-);
-
-const div3 = (
-  <div className='p-2 pt-40 flex flex-col justify-center items-center md:gap-y-5 gap-y-2 md:pt-40 md:my-20'>
-    <h1 className='md:text-5xl text-3xl text-txt font-bold'>Special Promotion</h1>
-    <p className='text-white'>Don't miss our special promotion! Get amazing discounts on a wide range of products. Save big and shop smart. Your satisfaction is our priority.</p>
-    <a href="#promotion" className='p-2 md:px-10 bg-status-w rounded-lg font-bold md:text-lg'>View Product</a>
-  </div>
-);
-
-//adjust on small screens
-function adjustWidth() {
-  return window.innerWidth >= 800 ? 600 : 370;
+const h1Variation = {
+  hidden: {opacity: 0, y:100},
+  visible: {opacity: 1, y: 1, transition: {duration: 0.5}}
 }
 
+const pVariation = {
+  hidden: {opacity: 0,y: 50},
+  visible: {opacity: 1,y:1, transition: {duration: 0.5, delay: 0.3}}
+}
+const imgVariation = {
+  hidden: {opacity: 0,x: 100},
+  visible: {opacity: 1,x:1, transition: {duration: 0.5, type: "spring", stiffness: 100 },}
+}
 
 
 const Hero = () => {
-  const div = [div1, div2, div3];
+  const h1Controls = useAnimation()
+  const pControls = useAnimation()
+  const imgControls = useAnimation()
+  const [h1Ref , h1Inview] = useInView({triggerOnce: true})
+  const [pRef , pInview] = useInView({triggerOnce: true})
+  const [imgRef , imgInview] = useInView({triggerOnce: true})
 
+  useEffect(() => {
+    if(h1Inview){
+      h1Controls.start('visible')
+    }
+  },[h1Controls, h1Inview])
+  useEffect(() => {
+    if(pInview){
+      pControls.start('visible')
+    }
+  },[pControls, pInview])
+  useEffect(() => {
+    if(imgInview){
+      imgControls.start('visible')
+    }
+  },[imgControls, imgInview])
   return (
-    <div className='flex justify-center items-center md:px-80'>
-      <div className="absolute md:bottom-16 bottom-10 bg-black bg-opacity-50 text-gray-100 w-full h-full md:h-[700px] rounded-15 md:p-20"></div>
-      <Carousel width={adjustWidth()} showArrows={false} showThumbs={false} showIndicators={true}  showStatus={false} infiniteLoop={true} autoPlay={true} interval={3000}>
-        {div.map((element, index) => (
-          <div key={index} className='z-10 my-10'>
-            {element}
-          </div>
-        ))}
-      </Carousel>
+    <div className='pt-24 py-20 md:px-56 px-3 flex justify-center items-center gap-x-52 md:flex-row flex-col-reverse w-full'>
+      <section className=''>
+        <motion.h1 ref={h1Ref} initial='hidden' animate={h1Controls} variants={h1Variation} className='text-2xl md:text-5xl  font-sans font-bold'>Elevate Your Style with Premium Footwear</motion.h1>
+        <motion.p ref={pRef} initial='hidden' animate={pControls} variants={pVariation} className='text-bg mb-10 mt-5'>Step into a world of sophistication and make a statement that sets you apart. Discover your unique stride today.</motion.p>
+        <Link to='/catalog' className='py-3 px-10 rounded-full hover:rounded-md hover:bg-orange-200 hover:text-dark bg-prim text-txt transition duration-500 ease-in-out font-bold'>SHOP NOW</Link>
+      </section>
+      <motion.img
+      ref={imgRef} initial='hidden' animate={imgControls} variants={imgVariation}
+       src={hero} className='md:h-full md:w-full h-52 w-52 mb-10' alt=""/>
     </div>
-  );
+  )
 }
 
-export default Hero;
+export default Hero

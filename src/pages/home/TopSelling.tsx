@@ -8,11 +8,11 @@ const TopSelling = () => {
    
 
   return (
-    <div className='my-20 flex justify-center items-center bg-txt flex-col'>
-        <h1 className='my-10 text-dark text-4xl font-bold'>Top Selling</h1>
+    <div className='my-20 flex justify-center items-center bg-dark flex-col'>
+        <h1 className='my-10 text-txt text-4xl font-bold'>Top Selling</h1>
         <section className='flex items-center justify-center md:flex-row flex-col gap-y-5 md:gap-x-10'>
             {products.slice(0,3).map((product: ProductT, index: number) => (
-                <article key={index} className='flex flex-col items-start justify-start gap-y-2 w-full px-2'>
+                <article key={index} className='flex flex-col items-start justify-start gap-y-2 w-full px-2 shadow-md p-3 bg-[#001326]'>
                     <figure className='w-full p-10 bg-slate-300'>
                         <img src={product.images[0]} className='' height={200} width={200} alt={product.name} />
                     </figure>

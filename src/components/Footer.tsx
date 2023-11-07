@@ -1,7 +1,6 @@
 import React from 'react'
 import { FiInstagram, FiTwitter} from 'react-icons/fi'
 import { BiLogoFacebook } from 'react-icons/bi'
-import { BsArrowRight } from 'react-icons/bs'
 import { HiOutlineMail } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 
@@ -27,18 +26,14 @@ const Footer = () => {
             </article>
             <article className='md:w-[30%] w-full flex flex-col gap-y-3'>
               <h1 className='text-xl font-semibold'>LINKS</h1>
-              <figure className='text-slate-300'>
-                <Link className='flex items-center gap-x-2 hover:text-blue-600' to='/'>
-                    <BsArrowRight size={20}/>
-                    Home</Link>
-                <Link className='flex items-center gap-x-2 hover:text-blue-600' to='/catalog'>
-                <BsArrowRight size={20}/>
+              <figure className='text-slate-300 flex flex-col gap-y-2'>
+                <Link className=' hover:text-blue-600' to='/'>
+                        Home</Link>
+                <Link className=' hover:text-blue-600' to='/catalog'>
                     Catalog</Link>
-                <Link className='flex items-center gap-x-2 hover:text-blue-600' to='/about'>
-                <BsArrowRight size={20}/>
+                <Link className=' hover:text-blue-600' to='/about'>
                     About</Link>
-                <Link className='flex items-center gap-x-2 hover:text-blue-600' to='/contact'>
-                <BsArrowRight size={20}/>
+                <Link className=' hover:text-blue-600' to='/contact'>
                     Contact</Link>
               </figure>
             </article>

@@ -5,7 +5,7 @@ import ProductImages from "./helpers/ProductImages"
 const Products: ProductT[] = [
     {
         name: 'Velocity Vortex',
-        color: ['white', 'black', 'orange'],
+        color: ['orange', 'black', 'white'],
         price: 120,
         sizes: [7, 7.5, 8, 9, 9.5, 10, 11, 11.5, 12],
         images: ProductImages.velocity,

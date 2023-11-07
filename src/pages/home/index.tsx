@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from '../../components/Navbar'
 import Hero from './Hero'
-import img from '../../assets/images/slider-bg.jpg'
 import WhyShopWithUs from './WhyShopWithUs'
 import Featured from './Featured'
 import TopSelling from './TopSelling'
@@ -10,8 +9,8 @@ import Footer from '../../components/Footer'
 
 const Home = () => {
   return (
-    <div className='font-sans p-0 block bg-txt'>
-        <header className='md:h-[700px] h-[600px]' style={{ backgroundImage: `url(${img})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center'}}>
+    <div className='font-sans p-0 block bg-dark text-txt'>
+        <header>
             <Navbar />
             <Hero />
         </header>
@@ -21,7 +20,7 @@ const Home = () => {
           <TopSelling />
           <EmailSubscription />
         </main>
-        <footer>
+        <footer className=''>
           <Footer />
         </footer>
     </div>
