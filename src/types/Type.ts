@@ -6,3 +6,9 @@ export type ProductT = {
     images: Array<string>
     description: string 
 }
+
+export type MessageT = {
+    names: string
+    email: string 
+    message: string
+}

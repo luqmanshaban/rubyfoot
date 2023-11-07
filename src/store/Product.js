@@ -7,7 +7,6 @@ const ProductProvider = ({ children }) => {
     const products = Products
     const [items, setItems] = useState([])
     const [itemCount, setItemCount] = useState({});
-    console.log(items);
 
     const handleAdd = (productName) =>
       setItemCount((prev) => ({

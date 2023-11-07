@@ -55,7 +55,7 @@ const Footer = () => {
                 </form>
             </article>
         </section>
-        <p className='text-txt text-center'>&copy; {date} All rights reserved | <a className='text-blue-600' href="https://luqmanshaban.com" target='_blank' rel='noreferrer'>RubyFoot</a></p>
+        <p className='text-txt text-center'>&copy; {date} All rights reserved | Developed by <a className='text-blue-600' href="https://luqmanshaban.com" target='_blank' rel='noreferrer'>RubyFoot</a></p>
     </div>
   )
 }
