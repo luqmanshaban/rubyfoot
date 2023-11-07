@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Navbar from '../../components/Navbar'
-import img from '../../assets/images/contact.png'
 import { MessageT } from '../../types/Type'
 import axios from 'axios'
 import { CgProfile } from 'react-icons/cg'
