@@ -29,17 +29,17 @@ const Signup = () => {
         setSubmitClicked(true)
         
         try {
-            const response = await axios.post('https://halalbox.cyclic.app/api/login', user)
+            const response = await axios.post('http://localhost:8000/api/signup', user)
             console.log(response);
             
             if(response.status === 200) {
                 localStorage.setItem('token', response.data.token)
-                navigate('/admin')
+                navigate('/login')
             }
         } catch (error: any) {
             console.log(error);
             
-            if(error.status === 401){
+            if(error.status === 404){
                 setError(true)
                 setTimeout(() => {
                     setError(false)

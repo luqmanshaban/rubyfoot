@@ -10,6 +10,10 @@ import Stealth from './pages/catalog/Stealth';
 import Nova from './pages/catalog/Nova';
 import Velocity from './pages/catalog/Velocity';
 import Signup from './pages/signup';
+import Admin from './admin';
+import ProtectRoutes from './ProtectRoute';
+import Orders from './admin/orders';
+
 
 function App() {
   return (
@@ -25,6 +29,8 @@ function App() {
       <Route path='/cart' element={<Cart />} />
       <Route path='/login' element={<Login />} />
       <Route path='/signup' element={<Signup />} />
+      <Route path='/admin' element={<ProtectRoutes><Admin /></ProtectRoutes>} />
+      <Route path='/admin/orders' element={<ProtectRoutes><Orders /></ProtectRoutes>} />
      </Routes>
     </div>
   );

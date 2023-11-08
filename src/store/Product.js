@@ -27,8 +27,11 @@ const ProductProvider = ({ children }) => {
 
     const addToCart = (name, price, size, quantity, color) => setItems(prev => [...prev, {name, price, size, quantity, color}])
     const createOrder = async(name, price, size, quantity, color) =>{
+      const orders = {
+        orders: items
+      }
       try {
-        await axios.post('http://localhost:8000/api/orders').then(res => {
+        await axios.post('http://localhost:8000/api/orders', orders).then(res => {
           setItems(prev => [...prev, {name, price, size, quantity, color}])
           setItems([])
           alert('Order Created')
@@ -37,6 +40,7 @@ const ProductProvider = ({ children }) => {
         
       } catch (error) {
         alert(error.message)
+        console.log(error);
       }
     }
     const removeFromCart = (name) => setItems((prev) => prev.filter((item) => item.name !== name));
