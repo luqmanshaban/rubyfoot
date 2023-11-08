@@ -29,7 +29,7 @@ const Signup = () => {
         setSubmitClicked(true)
         
         try {
-            const response = await axios.post('http://localhost:8000/api/signup', user)
+            const response = await axios.post('https://dark-plum-iguana-ring.cyclic.app/api/signup', user)
             console.log(response);
             
             if(response.status === 200) {

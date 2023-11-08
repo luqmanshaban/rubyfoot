@@ -10,7 +10,7 @@ const Orders = () => {
   useEffect(() => {
     const getOrders = async() => {
       try {
-        const response = await axios.get('http://localhost:8000/api/orders')
+        const response = await axios.get('https://dark-plum-iguana-ring.cyclic.app/api/orders')
         setOrders(response.data.orders)
       } catch (error) {
         console.error(error);

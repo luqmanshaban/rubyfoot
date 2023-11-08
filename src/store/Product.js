@@ -31,7 +31,7 @@ const ProductProvider = ({ children }) => {
         orders: items
       }
       try {
-        await axios.post('http://localhost:8000/api/orders', orders).then(res => {
+        await axios.post('https://dark-plum-iguana-ring.cyclic.app/api/orders', orders).then(res => {
           setItems(prev => [...prev, {name, price, size, quantity, color}])
           setItems([])
           alert('Order Created')
