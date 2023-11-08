@@ -23,7 +23,7 @@ const Velocity = () => {
       <header>
         <Navbar />
       </header>
-      <main className='pt-32'>
+      <main className='pt-32 pb-20'>
         <h1 className='md:text-3xl text-xl text-dark text-center'>Velocity</h1>
         <div className='flex justify-center items-center md:flex-row md:gap-x-20 flex-col gap-y-50'>
           <section className='flex flex-col gap-y-5'>
@@ -57,12 +57,12 @@ const Velocity = () => {
               <p className='text-gray-500 line-through italic'>${product.price -(product.price * 3)}</p>
             </div>
               <article className='flex items-center gap-x-3 md:flex-row flex-col'>
-                <figure className='flex items-center gap-x-3'>
-                  <button onClick={() => handleMinus(product.name)} disabled={(itemCount[product.name] || 0) === 1}><AiOutlineMinus size={30} color='black'/></button>
-                  <p className='font-bold'>{itemCount[product.name] || 1}</p>
-                  <button onClick={() => handleAdd(product.name)} disabled={((itemCount[product.name]) >= 5)}><AiOutlinePlus size={30} color='black'/></button>
+                <figure className=' items-center md:gap-x-3 md:justify-between justify-center gap-x-10 my- w-full hidden'>
+                  <button className='bg-prim p-2 text-txt rounded-full' onClick={() => handleMinus(product.name)} disabled={(itemCount[product.name] || 0) === 1}><AiOutlineMinus size={30}/></button>
+                  <p className='font-bold text-lg my-10'>{itemCount[product.name] || 1}</p>
+                  <button className='bg-prim p-2 text-txt rounded-full'  onClick={() => handleAdd(product.name)} disabled={((itemCount[product.name]) >= 5)}><AiOutlinePlus size={30}/></button>
                 </figure>
-                <button onClick={() => addToCart(product.name, product.price,7,itemCount[product.name] || 1 ,'')} className='bg-dark text-txt py-3 px-10 rounded-md md:w-[60%] w-full'>Add to Cart</button>
+                <button onClick={() => addToCart(product.name, product.price,7,itemCount[product.name] || 1 ,'')} className='bg-dark text-txt py-3 px-10 rounded-md w-full'>Add to Cart</button>
               </article>
           </section>
           

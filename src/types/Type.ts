@@ -8,6 +8,14 @@ export type ProductT = {
     description: string 
 }
 
+export type CartT = {
+    name: string 
+    price: number 
+    color: string 
+    size: number 
+    quantity: number
+}
+
 export type MessageT = {
     names: string
     email: string 

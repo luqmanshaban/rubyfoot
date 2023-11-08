@@ -1,5 +1,7 @@
 import { createContext, useMemo, useState } from "react";
 import Products from "../Products";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const ProductContext = createContext()
 
@@ -7,6 +9,7 @@ const ProductProvider = ({ children }) => {
     const products = Products
     const [items, setItems] = useState([])
     const [itemCount, setItemCount] = useState({});
+    const navigate = useNavigate()
 
     const handleAdd = (productName) =>
       setItemCount((prev) => ({
@@ -23,6 +26,19 @@ const ProductProvider = ({ children }) => {
       const count = items.length
 
     const addToCart = (name, price, size, quantity, color) => setItems(prev => [...prev, {name, price, size, quantity, color}])
+    const createOrder = async(name, price, size, quantity, color) =>{
+      try {
+        await axios.post('http://localhost:8000/api/orders').then(res => {
+          setItems(prev => [...prev, {name, price, size, quantity, color}])
+          setItems([])
+          alert('Order Created')
+          navigate('/')
+        })
+        
+      } catch (error) {
+        alert(error.message)
+      }
+    }
     const removeFromCart = (name) => setItems((prev) => prev.filter((item) => item.name !== name));
 
     const total = useMemo(() => {
@@ -41,7 +57,8 @@ const ProductProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         handleAdd,
-        handleMinus
+        handleMinus,
+        createOrder
     }
     return (
         <ProductContext.Provider value={context}>
