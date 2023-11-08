@@ -1,18 +1,20 @@
 import React from 'react'
 import Navbar from '../../components/Navbar'
-import Footer from '../../components/Footer'
+import Products from './Products'
+// import Footer from '../../components/Footer'
 
 const Catalog = () => {
   return (
-    <div>
+    <div className=' h-[100vh] font-sans'>
         <header>
             <Navbar />
         </header>
-        <main className='pt-20'>
-            <h1>Catalog</h1>
+        <main className='pt-32'>
+            <h1 className='md:text-4xl text-2xl text-center uppercase underline'>Our Prodcuts</h1>
+            <Products />
         </main>
         <footer>
-            <Footer />
+            {/* <Footer /> */}
         </footer>
     </div>
   )

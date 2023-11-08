@@ -51,7 +51,7 @@ const Cart = () => {
                        id="category"
                        name="category"
                        required 
-                       className='mx-2 p-2 rounded-lg bg-txt'
+                       className='mx-2 p-2 rounded-lg bg-dark text-zinc-50'
                       //  value={sizeBtnClicked}
                       //  onChange={(e) => sizePicked(parseInt(e.target.value, 10))}
                      >
@@ -68,7 +68,7 @@ const Cart = () => {
                        id="category"
                        name="category"
                        required 
-                       className='mx-2 p-2 rounded-lg bg-txt'
+                       className='mx-2 p-2 rounded-lg bg-dark text-zinc-50'
                       //  value={sizeBtnClicked}
                       //  onChange={(e) => sizePicked(parseInt(e.target.value, 10))}
                      >

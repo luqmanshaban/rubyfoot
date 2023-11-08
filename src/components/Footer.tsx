@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
     const date = new Date().getFullYear()
   return (
-    <div className='bg-dark'>
-        <section className='flex justify-center items-center md:flex-row flex-col gap-y-10 w-full md:p-10 p-5 text-txt'>
-            <article className='md:w-[30%] w-full flex flex-col gap-y-3'>
-                <h1 className='text-xl font-semibold'>RubyFoot</h1>
+    <div className='bg-dark md:py-20 py-10'>
+        <section className='flex  items-center justify-center md:flex-row gap-x-44 flex-col gap-y-14 w-full  md:p-10 p-5 text-txt'>
+            <article className='md:w-[20%] w-full flex flex-col gap-y-3'>
+                <h1 className='font-semibold'>RubyFoot</h1>
                 <p className='text-slate-300'>The customer is at the heart of our unique business model, your satisfaction is our ultimate goal</p>
                 <figure className='flex items-center gap-x-5'>
                     <a className='hover:text-prim' href="https://instagram.com/luqman_shaban" target='_blank' rel="noreferrer">
@@ -24,8 +24,8 @@ const Footer = () => {
                     </a>
                 </figure>
             </article>
-            <article className='md:w-[30%] w-full flex flex-col gap-y-3'>
-              <h1 className='text-xl font-semibold'>LINKS</h1>
+            <article className='md:w-[10%] w-full flex flex-col gap-y-3'>
+              <h1 className='font-semibold'>LINKS</h1>
               <figure className='text-slate-300 flex flex-col gap-y-2'>
                 <Link className=' hover:text-blue-600' to='/'>
                         Home</Link>
@@ -38,7 +38,7 @@ const Footer = () => {
               </figure>
             </article>
             <article className='md:w-[30%] w-full flex flex-col gap-y-3'>
-                <h1 className='text-xl font-semibold'>NEWSLETTER</h1>
+                <h1 className='font-semibold'>NEWSLETTER</h1>
                 <p className='text-slate-300'>Be the first to know about new arrivals, sales & promos!</p>
                 <form>
                     <div className='flex items-center mt-5'>
@@ -50,7 +50,7 @@ const Footer = () => {
                 </form>
             </article>
         </section>
-        <p className='text-txt text-center'>&copy; {date} All rights reserved | Developed by <a className='text-blue-600' href="https://luqmanshaban.com" target='_blank' rel='noreferrer'>RubyFoot</a></p>
+        <p className='text-txt text-center mt-20'>&copy; {date} All rights reserved <br /> Developed by <a className='text-blue-600' href="https://luqmanshaban.com" target='_blank' rel='noreferrer'>RubyFoot</a></p>
     </div>
   )
 }

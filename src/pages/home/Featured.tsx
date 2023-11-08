@@ -6,6 +6,7 @@ import { ProductContext } from '../../store/Product';
 import { BiCartAlt } from 'react-icons/bi';
 import {motion, useAnimation} from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import ProductCountdown from '../../components/CountDown';
 
 const h1Variation = {
   hidden: {opacity: 0, y:100},
@@ -35,7 +36,7 @@ const Featured = () => {
     
 
     const colorPicked = (colorValue: string) => {
-        setSelectedColor(colorValue); 
+        setSelectedColor(colorValue);         
     };
     const sizePicked = (sizeValue: number) => {
         setSelectedSize(sizeValue)
@@ -67,6 +68,7 @@ const Featured = () => {
             </section>
             <motion.section ref={dRef} initial='hidden' animate={iControls} variants={dVariation} className='flex flex-col gap-y-3 px-3 w-full md:w-auto py-20'>
                 <p className='text-sm font-bold text-orange-600'>On Sale</p>
+                <ProductCountdown />
                 <h1 className='text-dark md:text-4xl text-2xl font-bold '>Zapatilas Hombre</h1>
                 <h2 className='text-dark text-xl font-bold'>${products[0].price}</h2>
                 <div className='flex justify-between items-center'>
@@ -77,8 +79,8 @@ const Featured = () => {
                                 <span
                                     key={index}
                                     onClick={() => colorPicked(colorValue)}
-                               className={`cursor-pointer block  h-5 w-5 rounded-full ${selectedColor === colorValue && 'border-2 border-blue-700'} ${colorValue === 'white' ? 'bg-white' : ''} ${colorValue === 'black' ? 'bg-black' : ''} ${colorValue === 'orange' ?      'bg-orange-600' : ''}`}
-                                    >
+                                     className={`cursor-pointer block  h-5 w-5 rounded-full ${selectedColor === colorValue && 'border-2 border-blue-700'} ${colorValue === 'white' ? 'bg-white' : ''} ${colorValue === 'black' ? 'bg-black' : ''} ${colorValue === 'orange' ?      'bg-orange-600' : ''}`}
+                                >
                                 </span>
                             ))}
                        </div>

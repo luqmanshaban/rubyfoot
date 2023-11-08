@@ -20,7 +20,7 @@ const Navbar = () => {
       </Link>
       <ul className='md:flex justify-between items-center gap-x-10 hidden'>
          <Link to='/' className={`hover:text-prim transition ease-in-out duration-300 ${location.pathname === '/' ? 'text-prim font-bold underline underline-offset-8' : 'text-txt'}`}>home</Link>
-         <Link to='/catalog' className={`hover:text-prim transition ease-in-out duration-300 ${location.pathname === '/catalog' ? 'text-prim font-bold underline underline-offset-8' : 'text-txt'}`}>catalog</Link>
+         <Link to='/catalog' className={`hover:text-prim transition ease-in-out duration-300 ${location.pathname.includes('/catalog')  ? 'text-prim font-bold underline underline-offset-8' : 'text-txt'}`}>catalog</Link>
          <Link to='/contact' className={`hover:text-prim transition ease-in-out duration-300 ${location.pathname === '/contact' ? 'text-prim font-bold underline underline-offset-8' : 'text-txt'}`}>contact</Link>
          <Link to='/login' className={`hover:text-prim transition ease-in-out duration-300 ${location.pathname === '/login' ? 'text-prim font-bold underline underline-offset-8' : 'text-txt'}`}>login</Link>
          <Link to='/cart' className='relative bottom-0 hover:text-prim hover:font-bold'>

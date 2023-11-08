@@ -5,6 +5,7 @@ import ProductImages from "./helpers/ProductImages"
 const Products: ProductT[] = [
     {
         name: 'Velocity Vortex',
+        route: 'velocity',
         color: ['orange', 'black', 'white'],
         price: 120,
         sizes: [7, 7.5, 8, 9, 9.5, 10, 11, 11.5, 12],
@@ -13,6 +14,7 @@ const Products: ProductT[] = [
     },
     {
         name: 'Urban Stride',
+        route: 'urban',
         color: ['red', 'black', 'grey'],
         price: 80,
         sizes: [7, 7.5, 8, 9, 9.5, 10, 11, 11.5, 12],
@@ -21,6 +23,7 @@ const Products: ProductT[] = [
     },
     {
         name: 'NovaFlex Fusion',
+        route: 'nova',
         color: ['white', 'black', 'red'],
         price: 90,
         sizes: [7, 7.5, 8, 9, 9.5, 10, 11, 11.5, 12],
@@ -29,6 +32,7 @@ const Products: ProductT[] = [
     },
     {
         name: 'Stealth Runner',
+        route: 'stealth',
         color: ['white', 'green', 'orange'],
         price: 99,
         sizes: [7, 7.5, 8, 9, 9.5, 10, 11, 11.5, 12],
